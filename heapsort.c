@@ -83,6 +83,7 @@ int main (int argc, char** argv) {
     printf("final \n[");
     print_heap(array, length);
     printf("]\n");
+    free(array);
     return 0;
 }
 
@@ -118,4 +119,14 @@ int main (int argc, char** argv) {
     1. During Build_max_heap, skip all the leaves by starting heapify from the
         spot located at the middle of the array and roll all the way up to the 
         root index.
+*/
+
+/*
+    SPEED
+    Time complexity     O(N logN)
+    - heapify           O(log N)    // Typical recusion in binary tree
+    - build_max_heap:   O(N/2)->O(N)
+        - Start from the level before last and perform heapify (single swap here)
+        - Then move one layer up.
+    - heapsort calls heapify N time ->  O(N logN)
 */
